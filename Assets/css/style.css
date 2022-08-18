@@ -1,3 +1,31 @@
-body{
-    background-color: aquamarine;
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    
+  
 }
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+  }
+  nav{
+    background: #000428; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #000428, #004e92); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #000428, #004e92); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    color: white;
+  }
+
+
+  .nav-wrapper{
+    background-color: linear-gradient(to right, blue, navy);
+  }
+  h1,
+  h2,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+  }
