@@ -26,9 +26,9 @@
       </div>
     </nav>
 
-    <div class="container px-4 text-left">
+    <div class="text-left">
       <div class="row gx-5">
-        <div class="col-6 col-md-4">
+        <div class="col-6 col-md-3 p-5">
           <div class="vstack gap-3">
             <label for="exampleDataList" class="form-label"
               ><h1>Search for a City:</h1></label
@@ -47,7 +47,7 @@
               <option value="Chicago"></option>
             </datalist>
 
-              <button type="button" class="btn btn-secondary">Search</button>
+              <button type="button" class="btn btn-secondary searchbtn">Search</button>
             
             <div>
               <hr />
@@ -59,19 +59,39 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-8">
-         
-          <div class="card w-75">
+        
+        <div class="col-sm-6 col-md-9 p-5">
+          <div class="vstack gap-3">
+          <div class="card citydata">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Button</a>
+             <div class="cityData hstack gap-2">
+                <h1 class="titleDate"></h1>
+                <img class="imgIcon" src="" alt="weather-icon">
+             </div>
+             <div class="vstack gap-3">
+              <h5 class="temp"></h5>
+              <h5 class="wind"></h5>
+              <h5 class="humidity"></h5>
+              <h5 >UV Index: <span class="badge text-bg-success uvIndex"></span></h5>
+             </div>
+
             </div>
+          </div> 
+          
+          <div class="row row-cols-1 row-cols-md-5 g-4 carddata">
+          
+
+          </div>
+        </div>
+            
           </div>
         </div>
       </div>
     </div>
-
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+  ></script>
     <!-- Compiled and minified JavaScript -->
 
     <script

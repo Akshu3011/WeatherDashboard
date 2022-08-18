@@ -27,5 +27,15 @@ body {
   h5,
   h6 {
     font-family: 'Merriweather', serif;
-    font-weight: 700;
+    
+  }
+
+  .citydata{
+    height: 250px;
+  }
+
+  .container{
+    padding: 10px;
+    margin-left: 0%;
+  margin-right: 0%;
   }
