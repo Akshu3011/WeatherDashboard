@@ -71,7 +71,7 @@ function citySearch(city) {
             document.querySelector(".uvi").innerHTML = `UV Index: <span class="badge text-bg-success uvIndex">${data.current.uvi}</span>`;
 
             var cardbody = document.querySelector(".carddata");
-
+           
             for (var i = 1; i <= 5; i++) {
               var dateval = new Date(
                 data.daily[i].dt * 1000
@@ -158,5 +158,9 @@ function start()
 }
 
 
+var cardtitle = document.querySelector(".title");
+const element = document.createElement("div");
 
+element.innerHTML = `<h1>5 Day Forecast:</h1>`;
+cardtitle.appendChild(element);
 
