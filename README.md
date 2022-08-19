@@ -13,8 +13,7 @@ This application will help the trvellers to see the weather outlook for multiple
 1. [Installation](#installation)
 2. [Usage](#usage)
 3. [Contributing](#contributing)
-4. [Tests](#tests)
-5. [Questions](#questions)
+4. [Questions](#questions)
   
   ## Installation
   Please visit the application at [ Weather Dashboard](https://akshu3011.github.io/WeatherDashboard/)
@@ -29,15 +28,7 @@ This application will help the trvellers to see the weather outlook for multiple
   ## Contributing
   This project is open for contribution but please initiate an issue for any significant changes. [Contributor Covenant](https://www.contributor-covenant.org/)
   
-  ## Tests
-  To run tests, run the following command: 
-  
-  ``` 
-  npm test
-  
-  ``` 
-  
-
+ 
   ## Questions
   The developer can be reached through [Email](akshata.kumbhar@hotmail.com) or contacted through 
   [Github](https://github.com/akshu3011).
