@@ -23,7 +23,7 @@ This application will help the trvellers to see the weather outlook for multiple
   This application displays the weather outlook for the city provided by the user. The recent searches are accessible to users to revisit them. 
 
   Refer this application demo:
- ![weather](./assets/images/WeatherDashboard.png)
+ ![weather](../assets/images/WeatherDashboard.png)
   
 
   ## Contributing
