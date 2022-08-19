@@ -2,7 +2,7 @@ var APIKey = "ddeaf2e65b5db636874978d44d4454d3";
 var searchbtn = document.querySelector(".searchbtn");
 var city = "";
 var date = moment();
-var cities_ls=[];
+var cities_ls = [];
 
 var currentDate = date.format("MM/D/YYYY");
 console.log(currentDate); // "17/06/2022"
@@ -10,17 +10,15 @@ console.log(currentDate); // "17/06/2022"
 searchbtn.onclick = function (event) {
   event.preventDefault();
   clearData();
-  
+
   city = document.querySelector("#exampleDataList").value;
   var nameCapitalized = city.charAt(0).toUpperCase() + city.slice(1);
 
-  localStorage.setItem('city_'+city,JSON.stringify(nameCapitalized));
+  localStorage.setItem("city_" + city, JSON.stringify(nameCapitalized));
   citySearch(nameCapitalized);
 };
 
 function citySearch(city) {
-  
-
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
@@ -36,14 +34,15 @@ function citySearch(city) {
       .then(function (data) {
         console.log(data);
 
-       
         //city name and date
         document.querySelector(".titleDate").innerHTML =
           city + " (" + currentDate + ")";
         //icon
-        document.querySelector(".imgIcon").src ="http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+        document.querySelector(".icontitle").innerHTML = `<img class="imgIcon" src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="weather-icon">`
+          
         //temp
-        document.querySelector(".temp").innerHTML = "Temp: " + data.main.temp +"&#8457";
+        document.querySelector(".temp").innerHTML =
+          "Temp: " + data.main.temp + "&#8457";
         //wind
         document.querySelector(".wind").innerHTML =
           "Wind: " + data.wind.speed + " MPH";
@@ -58,17 +57,18 @@ function citySearch(city) {
           "&lon=" +
           data.coord.lon +
           "&exclude=hourly,minutely&appid=" +
-          APIKey+"&units=imperial";
+          APIKey +
+          "&units=imperial";
 
         fetch(forcastquery)
           .then(function (response) {
             return response.json();
           })
           .then(function (data) {
-            //console.log(data);
-            
+            console.log(data);
+
             //UV index
-            document.querySelector(".uvIndex").innerHTML = data.current.uvi;
+            document.querySelector(".uvi").innerHTML = `UV Index: <span class="badge text-bg-success uvIndex">${data.current.uvi}</span>`;
 
             var cardbody = document.querySelector(".carddata");
 
@@ -77,11 +77,11 @@ function citySearch(city) {
                 data.daily[i].dt * 1000
               ).toLocaleDateString("en-US");
               //console.log(dateval);
-              var temp= data.daily[i].temp.day;
-              var wind= data.daily[i].wind_speed;
-              var humidity=data.daily[i].humidity;
+              var temp = data.daily[i].temp.day;
+              var wind = data.daily[i].wind_speed;
+              var humidity = data.daily[i].humidity;
 
-              const element = document.createElement('div');
+              const element = document.createElement("div");
 
               element.innerHTML = ` 
               <div class="col">
@@ -96,44 +96,67 @@ function citySearch(city) {
           </div>
         </div>`;
 
-        cardbody.appendChild(element);
-
-    
+              cardbody.appendChild(element);
             }
             init();
+           // start();
           });
       });
   }
 }
 
-function clearData()
-{
-  document.querySelector(".carddata").innerHTML='';
-
+function clearData() {
+  document.querySelector(".carddata").innerHTML = "";
 }
 
-
-
-function init(){
- 
+function init() {
   cities_ls.push(JSON.parse(localStorage.getItem("city_")));
-  console.log(cities_ls);
-    document.querySelector(".ls_data").innerHTML='';
-    var results = [];
-for (i = 0; i < window.localStorage.length; i++) {
+  //console.log(cities_ls);
+  document.querySelector(".ls_data").innerHTML = "";
+  var results = [];
+  for (i = 0; i < window.localStorage.length; i++) {
     key = window.localStorage.key(i);
-    if (key.slice(0,2) === "ci") {
-        results.push(JSON.parse(window.localStorage.getItem(key)));
-        console.log(results);
-        const element = document.createElement('div');
-      element.innerHTML = `<button type="button" class="btn container btn-outline-secondary" id="${results[i]}">
+    if (key.slice(0, 2) === "ci") {
+      results.push(JSON.parse(window.localStorage.getItem(key)));
+     // console.log(results);
+      const element = document.createElement("div");
+      element.innerHTML = `<button type="button" class="btn container btn-outline-secondary cities">
       ${results[i]}
-      </button>`;  
+      </button>`;
       document.querySelector(".ls_data").appendChild(element);
     }
+  }
+  console.log("initend");
+  start();
+  
 }
+
+
+init();
+//start();
+
+function start()
+{
+  console.log("start");
+
+  const citiesls=document.querySelectorAll('.cities');
+  citiesls.forEach(city =>{
+    city.addEventListener('click',function (event) {
+      event.preventDefault();
+     
+      clearData();
+    
+      var cityname = city.textContent;
+    
+      citySearch(cityname);
+     console.log("end");
+      
+    });
+  })
   
   
 }
 
-init();
+
+
+
