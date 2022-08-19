@@ -29,7 +29,11 @@ body {
     font-family: 'Merriweather', serif;
     
   }
-
+  .forecast{
+    background-color: #455d7a;
+    color: white;
+  
+  }
   .citydata{
     height: 250px;
   }
@@ -39,3 +43,11 @@ body {
     margin-left: 0%;
   margin-right: 0%;
   }
+
+
+.visible {
+  visibility: visible !important;
+}
+.invisible {
+  visibility: hidden !important;
+}
