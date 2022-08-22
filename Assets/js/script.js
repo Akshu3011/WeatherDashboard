@@ -68,7 +68,26 @@ function citySearch(city) {
             console.log(data);
 
             //UV index
-            document.querySelector(".uvi").innerHTML = `UV Index: <span class="badge text-bg-success uvIndex">${data.current.uvi}</span>`;
+            var colorbg='';
+            
+            if(data.current.uvi<=2)
+            {
+               colorbg='success';
+            }
+            else
+            if(data.current.uvi>=3 && data.current.uvi<=7)
+            {
+               colorbg='warning';
+            }
+            else
+            if(data.current.uvi>=8)
+            {
+               colorbg='danger';
+            }
+            
+
+
+            document.querySelector(".uvi").innerHTML = `UV Index: <span class="badge text-bg-${colorbg} uvIndex">${data.current.uvi}</span>`;
 
             var cardbody = document.querySelector(".carddata");
            
