@@ -6,7 +6,7 @@ This application will help the trvellers to see the weather outlook for multiple
   This application uses the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve weather data for cities. The persistent data (recent searches) are stored in localstorage.
 
   ## Description
-  You can provide the correct information about your team members via cmd based application and  a HTML page with your team profile will be automatically generated.
+ This is a Weather Forecast application.
 
   ## Table of Contents
   
